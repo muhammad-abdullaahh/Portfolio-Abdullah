@@ -85,21 +85,32 @@ section{
 }
 
 .home-img img{
-    width: 35vw;
+    width: 28vw;
     animation: floatImage 4s ease-in-out infinite;
+
+    /* perfect circle */
+    border-radius: 50%;
+
+    /* background blending */
+    mix-blend-mode: lighten;
+    filter: brightness(1.05) contrast(1.05);
+
+    /* feathered edge fade */
+    -webkit-mask-image: radial-gradient(circle at center,
+        black 55%,
+        rgba(0,0,0,0.8) 65%,
+        rgba(0,0,0,0.4) 72%,
+        transparent 100%);
+    mask-image: radial-gradient(circle at center,
+        black 55%,
+        rgba(0,0,0,0.8) 65%,
+        rgba(0,0,0,0.4) 72%,
+        transparent 100%);
+
+    /* soft ambient bleed */
+    box-shadow: 0 0 8rem 2rem rgba(31, 36, 45, 0.8);
 }
 
-@keyframes floatImage{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-2.4rem);
-    }
-    100%{
-        transform: translateY(0);
-    }
-}
 
 .home-content h3{
     font-size: 3.2rem;
